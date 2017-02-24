@@ -1,4 +1,4 @@
-
+// 
 
 function parseRottenTomatoesHTML(fileData) {
     var cheerio = require("cheerio");
@@ -80,12 +80,10 @@ function requestRottenTomatoesHTML(callback) {
         });
 }
 
-function getRottenTomatoesScraperData(callback) {
+exports.getRottenTomatoesScraperData = function(callback) {
     requestRottenTomatoesHTML(callback);
 }
 
-getRottenTomatoesData(function(error, data) { 
-                console.log("error = " + error);
-                console.log(JSON.stringify(data, null, 2)); });
+
 
 

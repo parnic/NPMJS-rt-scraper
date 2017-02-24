@@ -1,7 +1,7 @@
 {
   "name": "rt-scraper",
-  "version": "1.0.0",
-  "description": "This module will scrape the front page of RottenTomatoes.com for the movies opening this week, top box office, and coming soon. For each movie the Rotten Tomato meter score will be included, when available, as well as the either the release date or the box office gross.",
+  "version": "1.0.3",
+  "description": "This package, without an API key, will scrape the front page of RottenTomatoes.com for the movies opening this week, top box office, and coming soon.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
