@@ -7,10 +7,10 @@ This is done without using an API key.
 The information returned includes movies opening this week, top box office, and coming soon.
 
 For each movie some information will be returned:
-* Movie title
-* Movie Rotten Tomato meter rating (i.e. 93%, 45%, etc), or will show no score yet if not available
-* Movie release date, for the opening this week and coming soon datasets
-* Movie US domestic gross, for the top box office dataset
+* Title
+* Rotten Tomato meter rating (i.e. 93%, 45%, etc), or will show no score yet if not available
+* Release date, for the opening this week and coming soon datasets
+* US domestic gross, for the top box office dataset
 
 ## Installation
 
@@ -19,6 +19,24 @@ npm install rt-scraper
 ```
 
 ## Usage
+
+There is only one method to this package: ```getRottenTomatoesScraperData(callback)```
+
+This method requires the use of a callback, which can be specified or anonymous. The callback has two parameters in the form of ```function(error, data)```.
+
+If there was an error, like failed HTML request or bad parsing, **error** will be true and **data** will be **null**. Otherwise, **error** will be false and **data** will be a javascript object. 
+
+The **data** object has three keys: **openingThisWeek**, **boxOffice**, **comingSoon**. Each of these keys has for a value an array of movie objects. 
+
+Each movie object contains a **title** and **meter** key, where **title** is the name of the movie and **meter** is it's Rotten Tomato meter score. Note that if no score is available this value can be equal to "No Score Yet" rather than "93%" or "45%".
+
+The **openingThisWeek** and *comingSoon** keys will have movies with a **date** which references the movie's release date. This value will be in the form of "Mar 3" or "Sep 12".
+
+The **boxOffice** key will have movies with a **gross** which references the US domestic gross of that movie. This value will be in the form of "$11.2M" or "$120.7M"
+
+Examine the usage and data return examples for best results.
+
+## Usage Example
 
 ```javascript
 // Usage example of rt-scraper package

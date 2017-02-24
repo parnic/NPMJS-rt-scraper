@@ -1,6 +1,6 @@
 {
   "name": "rt-scraper",
-  "version": "1.0.3",
+  "version": "1.0.5",
   "description": "This package, without an API key, will scrape the front page of RottenTomatoes.com for the movies opening this week, top box office, and coming soon.",
   "main": "index.js",
   "scripts": {
@@ -22,7 +22,7 @@
     "dates"
   ],
   "author": "AdamMoses-GitHub",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/AdamMoses-GitHub/NPMJS-rt-scraper/issues"
   },
