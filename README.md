@@ -30,9 +30,9 @@ The **data** object has three keys: **openingThisWeek**, **boxOffice**, **coming
 
 Each movie object contains a **title** and **meter** key, where **title** is the name of the movie and **meter** is it's Rotten Tomato meter score. Note that if no score is available this value can be equal to "No Score Yet" rather than "93%" or "45%".
 
-The **openingThisWeek** and *comingSoon** keys will have movies with a **date** which references the movie's release date. This value will be in the form of "Mar 3" or "Sep 12".
+The **openingThisWeek** and **comingSoon** keys will have movies with a **date** which references the movie's release date. This value will be in the form of "Mar 3" or "Sep 12".
 
-The **boxOffice** key will have movies with a **gross** which references the US domestic gross of that movie. This value will be in the form of "$11.2M" or "$120.7M"
+The **boxOffice** key will have movies with a **date** which references the US domestic gross of that movie. This value will be in the form of "$11.2M" or "$120.7M". This is called **date** to stay consistent with the other keys as well as the RottenTomatoes homepage HTML itself.
 
 Examine the usage and data return examples for best results.
 
@@ -91,52 +91,52 @@ rtscraper.getRottenTomatoesScraperData( function(error, data) {
     {
       "meter": "91%",
       "title": "The Lego Batman Movie",
-      "gross": "$32.7M"
+      "date": "$32.7M"
     },
     {
       "meter": "8%",
       "title": "Fifty Shades Darker",
-      "gross": "$20.3M"
+      "date": "$20.3M"
     },
     {
       "meter": "35%",
       "title": "The Great Wall",
-      "gross": "$18.5M"
+      "date": "$18.5M"
     },
     {
       "meter": "90%",
       "title": "John Wick: Chapter 2",
-      "gross": "$16.3M"
+      "date": "$16.3M"
     },
     {
       "meter": "30%",
       "title": "Fist Fight",
-      "gross": "$12.3M"
+      "date": "$12.3M"
     },
     {
       "meter": "92%",
       "title": "Hidden Figures",
-      "gross": "$7.3M"
+      "date": "$7.3M"
     },
     {
       "meter": "75%",
       "title": "Split",
-      "gross": "$7.2M"
+      "date": "$7.2M"
     },
     {
       "meter": "34%",
       "title": "A Dog's Purpose",
-      "gross": "$5.8M"
+      "date": "$5.8M"
     },
     {
       "meter": "93%",
       "title": "La La Land",
-      "gross": "$4.6M"
+      "date": "$4.6M"
     },
     {
       "meter": "39%",
       "title": "A Cure For Wellness",
-      "gross": "$4.4M"
+      "date": "$4.4M"
     }
   ],
   "comingSoon": [
