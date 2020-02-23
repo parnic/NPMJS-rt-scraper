@@ -38,13 +38,13 @@ function parseRottenTomatoesHTML(fileData) {
         // load the html into the cheerio doc
         var fullDoc = cheerio.load(fileData);
         // find the stub for movies opening this week
-        var openingThisWeekDoc = cheerio.load(fullDoc('[id="homepage-opening-this-week"]').html());        
+        var openingThisWeekDoc = cheerio.load(fullDoc('[id="opening-this-week"]').html());        
         // iterate through movies and strip useful parts, add each to return object
-        openingThisWeekDoc('.sidebarInTheaterOpening').each(function() {
+        openingThisWeekDoc('tr').each(function() {
             var movieDoc = cheerio.load(openingThisWeekDoc(this).html());
-            var movieMeter = movieDoc('.left_col').text().trim();
-            var movieTitle = movieDoc('.middle_col').text().trim();
-            var movieDate  = movieDoc('.right_col').text().trim();
+            var movieMeter = movieDoc('.media-lists__td-rating').text().trim();
+            var movieTitle = movieDoc('.media-lists__td-title').text().trim();
+            var movieDate  = movieDoc('.media-lists__td-date').text().trim();
             var movieObj = {
                 meter: movieMeter, 
                 title: movieTitle, 
@@ -53,13 +53,13 @@ function parseRottenTomatoesHTML(fileData) {
             allTomatoData.openingThisWeek[allTomatoData.openingThisWeek.length] = movieObj;
         });    
         // find the stub for top box office this week            
-        var topBoxOfficeDoc = cheerio.load(fullDoc('[id="homepage-top-box-office"]').html()); 
+        var topBoxOfficeDoc = cheerio.load(fullDoc('[id="top-box-office"]').html()); 
         // iterate through movies and strip useful parts, add each to return object        
-        topBoxOfficeDoc('.sidebarInTheaterOpening').each(function() {
+        topBoxOfficeDoc('tr').each(function() {
             var movieDoc = cheerio.load(topBoxOfficeDoc(this).html());
-            var movieMeter = movieDoc('.left_col').text().trim();
-            var movieTitle = movieDoc('.middle_col').text().trim();
-            var movieGross = movieDoc('.right_col').text().trim();
+            var movieMeter = movieDoc('.media-lists__td-rating').text().trim();
+            var movieTitle = movieDoc('.media-lists__td-title').text().trim();
+            var movieGross = movieDoc('.media-lists__td-date').text().trim();
             var movieObj = {
                 meter: movieMeter, 
                 title: movieTitle, 
@@ -68,13 +68,13 @@ function parseRottenTomatoesHTML(fileData) {
             allTomatoData.boxOffice[allTomatoData.boxOffice.length] = movieObj;            
         });  
         // find the stub for top movies coming soon
-        var topComingSoonDoc = cheerio.load(fullDoc('[id="homepage-top-coming-soon"]').html());
+        var topComingSoonDoc = cheerio.load(fullDoc('[id="coming-soon-theaters"]').html());
         // iterate through movies and strip useful parts, add each to return object         
-        topComingSoonDoc('.sidebarInTheaterOpening').each(function() {
+        topComingSoonDoc('tr').each(function() {
             var movieDoc = cheerio.load(topComingSoonDoc(this).html());
-            var movieMeter = movieDoc('.left_col').text().trim();
-            var movieTitle = movieDoc('.middle_col').text().trim();
-            var movieDate  = movieDoc('.right_col').text().trim();
+            var movieMeter = movieDoc('.media-lists__td-rating').text().trim();
+            var movieTitle = movieDoc('.media-lists__td-title').text().trim();
+            var movieDate  = movieDoc('.media-lists__td-date').text().trim();
             var movieObj = {
                 meter: movieMeter, 
                 title: movieTitle, 
