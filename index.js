@@ -46,11 +46,17 @@ function parseRottenTomatoesHTML(fileData) {
 function populate(fullDoc, id) {
     var cheerio = require("cheerio");
     var ret = [];
-    var data = cheerio.load(fullDoc('[id="' + id + '"]').html());        
-    data('tr').each(function() {
-        var movieDoc = cheerio.load(data(this).html());
-        ret[ret.length] = buildMovieObj(movieDoc);
-    });
+    var doc = fullDoc('[id="' + id + '"]');
+    if (doc !== null){
+        var body = doc.html();
+        if (body !== null) {
+            var data = cheerio.load(doc.html());        
+            data('tr').each(function() {
+                var movieDoc = cheerio.load(data(this).html());
+                ret[ret.length] = buildMovieObj(movieDoc);
+            });
+        }
+    }
     return ret;
 }
 
